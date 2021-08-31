@@ -1,0 +1,55 @@
+<h2>Wacc</h2>
+<p>A wacc depende de 5 variaveis, por favor preenche-las em sequencia:</p>
+<input
+  [(ngModel)]="E"
+  (keyup)="calcularWacc()"
+  (change)="calcularWacc()"
+  type="number"
+/>
+E (patrimonio liquido da entidade)
+<br />
+<br />
+<input
+  [(ngModel)]="D"
+  (keyup)="calcularWacc()"
+  (change)="calcularWacc()"
+  type="number"
+/>
+Divida (divida da entidade)
+<br />
+<br />
+<input
+  [(ngModel)]="Ke"
+  (keyup)="calcularWacc()"
+  (change)="calcularWacc()"
+  type="number"
+/>
+Ke (custo do capital)
+<br />
+<br />
+<input
+  [(ngModel)]="Kd"
+  (keyup)="calcularWacc()"
+  (change)="calcularWacc()"
+  type="number"
+/>
+Kd (custo da divida antes de impostos)
+<br />
+<br />
+<input
+  [(ngModel)]="ti"
+  (keyup)="calcularWacc()"
+  (change)="calcularWacc()"
+  type="number"
+/>
+ti (Taxa de IR)
+<br />
+<br />
+<h3>Resultado</h3>
+{{Resultado}}
+<br />
+<br />
+<h3>Na formula</h3>
+({{E}}/{{V}}) * {{Ke}} + ({{D}}/{{V}}) * {{Kd}} * (1 - {{ti}}) = {{Resultado}}
+
+

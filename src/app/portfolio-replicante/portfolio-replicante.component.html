@@ -1,0 +1,83 @@
+<h1>Portfolio Replicante</h1>
+
+<p>
+  Faça upload de um arquivo CSV contendo a variação do preço do ativo alvo e dos ativos que serão utilizados para replicá-lo.
+</p>
+
+<p>
+  Exemplo: <a target="_blank" href="https://drive.google.com/file/d/1gd5kNVJWZ9O2DLf6hDsv4X6X8yr2N6RA/view?usp=sharing">Dados para Ibovespa replicado por IND, USD e DI1</a>
+</p>
+
+<app-csv-file-input (onLoad)="onLoad($event)"></app-csv-file-input>
+
+<br>
+<br>
+
+<div *ngIf="portfolioReplicante.length > 0">
+  <div class="row">
+    <div class="col-md-4">
+      <p>
+        <label for="sensibilidade-delta">
+          <strong>Sensibilidade Delta</strong>
+        </label>
+        <input
+          [(ngModel)]="sensibilidades[0][0]"
+          (keyup)="calculaPortfolioReplicante()"
+          (change)="calculaPortfolioReplicante()"
+          class="form-control"
+          type="number"
+          step="0.01"
+          name="sensibilidade-delta"
+          required
+        />
+      </p>
+    </div>
+
+    <div class="col-md-4">
+      <p>
+        <label for="sensibilidade-gama">
+          <strong>Sensibilidade Gama</strong>
+        </label>
+        <input
+          [(ngModel)]="sensibilidades[1][0]"
+          (keyup)="calculaPortfolioReplicante()"
+          (change)="calculaPortfolioReplicante()"
+          class="form-control"
+          type="number"
+          step="0.01"
+          name="sensibilidade-gama"
+          required
+        />
+      </p>
+    </div>
+  </div>
+
+  <br>
+
+  <p>
+    <strong>Portfolio Replicante para {{alvo}}</strong>
+  </p>
+
+  <div *ngIf="erro" class="alert alert-danger" role="alert">
+    Ocorreu um erro ao calcular o portfolio replicante. Confira os valores de sensibilidade e as variações:
+    <ul>
+      <li>As sensibilidades devem ser preenchidas. Insira 0 caso não queira utilizar uma sensibilidade.</li>
+      <li>O arquivo deve conter uma primeira linha com o nome dos ativos, e as demais devem conter as variações percentuais a cada instance de tempo.</li>
+    </ul>
+  </div>
+
+  <div class="table-responsive" *ngIf="!erro">
+    <table class="table">
+      <thead>
+        <tr>
+          <th *ngFor="let ativo of ativos;">{{ativo}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td *ngFor="let posicao of portfolioReplicante;">{{posicao}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
