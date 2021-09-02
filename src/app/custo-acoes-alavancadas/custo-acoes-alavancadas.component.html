@@ -1,47 +1,49 @@
-<h2>Custo do capital de ações alavancadas</h2>
-<p>São necessárias quatro variaveis para calcular o custo, sendo essas:</p>
-<input
-  [(ngModel)]="Ru"
-  (keyup)="calcularccaa()"
-  (change)="calcularccaa()"
-  type="number"
-/>
-Ru (é o custo de capital se somente fossem utilizados recursos próprios)
-<br />
-<br />
-<input
-  [(ngModel)]="D"
-  (keyup)="calcularccaa()"
-  (change)="calcularccaa()"
-  type="number"
-/>
-D (são os recursos de terceiros)
-<br />
-<br />
-<input
-  [(ngModel)]="E"
-  (keyup)="calcularccaa()"
-  (change)="calcularccaa()"
-  type="number"
-/>
-E (é o total de recursos da empresa)
+<div class="content">
+  <h2>Custo do capital de ações alavancadas</h2>
+  <p>São necessárias quatro variaveis para calcular o custo, sendo essas:</p>
+  <input
+    [(ngModel)]="Ru"
+    (keyup)="calcularccaa()"
+    (change)="calcularccaa()"
+    type="number"
+  />
+  Ru (é o custo de capital se somente fossem utilizados recursos próprios)
+  <br />
+  <br />
+  <input
+    [(ngModel)]="D"
+    (keyup)="calcularccaa()"
+    (change)="calcularccaa()"
+    type="number"
+  />
+  D (são os recursos de terceiros)
+  <br />
+  <br />
+  <input
+    [(ngModel)]="E"
+    (keyup)="calcularccaa()"
+    (change)="calcularccaa()"
+    type="number"
+  />
+  E (é o total de recursos da empresa)
 
-<br />
-<br />
-<input
-  [(ngModel)]="Rd"
-  (keyup)="calcularccaa()"
-  (change)="calcularccaa()"
-  type="number"
-/>
-Rd (é a taxa exigida de rentabilidade da dívida, ou custo da dívida)
-<br />
-<br />
-<h3>Resultado</h3>
-{{Re}}
-<br />
-<br />
-<h3>Na formula</h3>
-{{Ru}} + ( ({{D}} / {{E}}) * ({{Ru}} - {{Rd}})) = {{Re}}
+  <br />
+  <br />
+  <input
+    [(ngModel)]="Rd"
+    (keyup)="calcularccaa()"
+    (change)="calcularccaa()"
+    type="number"
+  />
+  Rd (é a taxa exigida de rentabilidade da dívida, ou custo da dívida)
+  <br />
+  <br />
+  <h3>Resultado</h3>
+  {{Re}}
+  <br />
+  <br />
+  <h3>Na formula</h3>
+  {{Ru}} + ( ({{D}} / {{E}}) * ({{Ru}} - {{Rd}})) = {{Re}}
 
 
+</div>

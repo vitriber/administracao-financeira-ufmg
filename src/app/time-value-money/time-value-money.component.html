@@ -1,487 +1,491 @@
-<h1>Valor do Dinheiro no Tempo (TVM)</h1>
+<div class="content">
 
-<p>
-    Marque a seguir o parâmetro que deseja obter.
-</p>
+  <h1>Valor do Dinheiro no Tempo (TVM)</h1>
 
-<!-- Menu de radio buttons -->
-<div class="row">
-    <!--
-        <div class="col-md-1">
-            <div class="custom-control custom-radio">
-            <input
-                [(ngModel)]="tvmRadio" value="n"
-                type="radio" class="custom-control-input" id="radio-numero-periodos" name="tvmRadios"
-            >
-            <label class="custom-control-label" for="radio-numero-periodos">n</label>
-            </div>
-        </div>
-    -->
-    <div class="col-md-1">
-        <!-- Taxa de juros -->
-        <div class="custom-control custom-radio">
-        <input
-            [(ngModel)]="tvmRadio" value="i"
-            type="radio" class="custom-control-input" id="radio-taxa" name="tvmRadios"
-        >
-        <label class="custom-control-label" for="radio-taxa">i</label>
-        </div>
-    </div>
-    <div class="col-md-1">
-        <!-- Valor Presente -->
-        <div class="custom-control custom-radio">
-        <input
-            [(ngModel)]="tvmRadio" value="pv"
-            type="radio" class="custom-control-input" id="radio-valor-presente" name="tvmRadios"
-        >
-        <label class="custom-control-label" for="radio-valor-presente">PV</label>
-        </div>
-    </div>
-    <div class="col-md-1">
-        <!-- Payment -->
-        <div class="custom-control custom-radio">
-        <input
-            [(ngModel)]="tvmRadio" value="pmt"
-            type="radio" class="custom-control-input" id="radio-payment" name="tvmRadios"
-        >
-        <label class="custom-control-label" for="radio-payment">PMT</label>
-        </div>
-    </div>
-    <div class="col-md-1">
-        <!-- Valor Futuro -->
-        <div class="custom-control custom-radio">
-        <input
-            [(ngModel)]="tvmRadio" value="fv"
-            type="radio" class="custom-control-input" id="radio-valor-futuro" name="tvmRadios"
-        >
-        <label class="custom-control-label" for="radio-valor-futuro">FV</label>
-        </div>
-    </div>
-</div>
+  <p>
+      Marque a seguir o parâmetro que deseja obter.
+  </p>
 
-<br>
+  <!-- Menu de radio buttons -->
+  <div class="row">
+      <!--
+          <div class="col-md-1">
+              <div class="custom-control custom-radio">
+              <input
+                  [(ngModel)]="tvmRadio" value="n"
+                  type="radio" class="custom-control-input" id="radio-numero-periodos" name="tvmRadios"
+              >
+              <label class="custom-control-label" for="radio-numero-periodos">n</label>
+              </div>
+          </div>
+      -->
+      <div class="col-md-1">
+          <!-- Taxa de juros -->
+          <div class="custom-control custom-radio">
+          <input
+              [(ngModel)]="tvmRadio" value="i"
+              type="radio" class="custom-control-input" id="radio-taxa" name="tvmRadios"
+          >
+          <label class="custom-control-label" for="radio-taxa">i</label>
+          </div>
+      </div>
+      <div class="col-md-1">
+          <!-- Valor Presente -->
+          <div class="custom-control custom-radio">
+          <input
+              [(ngModel)]="tvmRadio" value="pv"
+              type="radio" class="custom-control-input" id="radio-valor-presente" name="tvmRadios"
+          >
+          <label class="custom-control-label" for="radio-valor-presente">PV</label>
+          </div>
+      </div>
+      <div class="col-md-1">
+          <!-- Payment -->
+          <div class="custom-control custom-radio">
+          <input
+              [(ngModel)]="tvmRadio" value="pmt"
+              type="radio" class="custom-control-input" id="radio-payment" name="tvmRadios"
+          >
+          <label class="custom-control-label" for="radio-payment">PMT</label>
+          </div>
+      </div>
+      <div class="col-md-1">
+          <!-- Valor Futuro -->
+          <div class="custom-control custom-radio">
+          <input
+              [(ngModel)]="tvmRadio" value="fv"
+              type="radio" class="custom-control-input" id="radio-valor-futuro" name="tvmRadios"
+          >
+          <label class="custom-control-label" for="radio-valor-futuro">FV</label>
+          </div>
+      </div>
+  </div>
 
-<!-- Numero de Periodos -->
-<!--
-    <div *ngIf="tvmRadio === 'n'">
-        <h2>Number of Periods (n)</h2>
-        <br>
-    </div>
--->
+  <br>
 
-<!-- Taxa de juros -->
-<div *ngIf="tvmRadio === 'i'">
-    <h2>Rate for the Periods (i)</h2>
-    <br>
-    <div class="row">
-        <div class="col-md-3">
-            <label for="numero-periodos">
-                Número de períodos <strong>(n)</strong>
-            </label>
-            <input
-                [(ngModel)]="numPeriods"
-                (keyup)="calculaTaxa()"
-                (change)="calculaTaxa()"
-                class="form-control"
-                type="number"
-                step="1"
-                name="numero-periodos"
-                required
-            >
-        </div>
+  <!-- Numero de Periodos -->
+  <!--
+      <div *ngIf="tvmRadio === 'n'">
+          <h2>Number of Periods (n)</h2>
+          <br>
+      </div>
+  -->
 
-        <div class="col-md-3">
-            <label for="valor-presente">
-                Valor Presente <strong>(PV)</strong>
-            </label>
-            <div class="input-group">
-                <input
-                [(ngModel)]="presentValue"
-                (keyup)="calculaTaxa()"
-                (change)="calculaTaxa()"
-                class="form-control"
-                type="number"
-                step="1"
-                name="valor-presente"
-                required
-                >
-                <div class="input-group-prepend">
-                    <span class="input-group-text">$</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <br>
-    <div class="row">
-        <div class="col-md-3">
-            <label for="pagamentos">
-                Pagamentos por período <strong>(PMT)</strong>
-            </label>
-            <div class="input-group">
-                <input
-                    [(ngModel)]="payments"
-                    (keyup)="calculaTaxa()"
-                    (change)="calculaTaxa()"
-                    class="form-control"
-                    type="number"
-                    step="1"
-                    name="pagamentos"
-                    required
-                >
-                <div class="input-group-prepend">
-                    <span class="input-group-text">$</span>
-                </div>
-            </div>
-        </div>
+  <!-- Taxa de juros -->
+  <div *ngIf="tvmRadio === 'i'">
+      <h2>Rate for the Periods (i)</h2>
+      <br>
+      <div class="row">
+          <div class="col-md-3">
+              <label for="numero-periodos">
+                  Número de períodos <strong>(n)</strong>
+              </label>
+              <input
+                  [(ngModel)]="numPeriods"
+                  (keyup)="calculaTaxa()"
+                  (change)="calculaTaxa()"
+                  class="form-control"
+                  type="number"
+                  step="1"
+                  name="numero-periodos"
+                  required
+              >
+          </div>
 
-        <div class="col-md-3">
-            <label for="valor-futuro">
-                Valor Futuro <strong>(FV)</strong>
-            </label>
-            <div class="input-group">
-                <input
-                [(ngModel)]="futureValue"
-                (keyup)="calculaTaxa()"
-                (change)="calculaTaxa()"
-                class="form-control"
-                type="number"
-                step="1"
-                name="valor-futuro"
-                required
-                >
-                <div class="input-group-prepend">
-                    <span class="input-group-text">$</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <br>
+          <div class="col-md-3">
+              <label for="valor-presente">
+                  Valor Presente <strong>(PV)</strong>
+              </label>
+              <div class="input-group">
+                  <input
+                  [(ngModel)]="presentValue"
+                  (keyup)="calculaTaxa()"
+                  (change)="calculaTaxa()"
+                  class="form-control"
+                  type="number"
+                  step="1"
+                  name="valor-presente"
+                  required
+                  >
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">$</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <br>
+      <div class="row">
+          <div class="col-md-3">
+              <label for="pagamentos">
+                  Pagamentos por período <strong>(PMT)</strong>
+              </label>
+              <div class="input-group">
+                  <input
+                      [(ngModel)]="payments"
+                      (keyup)="calculaTaxa()"
+                      (change)="calculaTaxa()"
+                      class="form-control"
+                      type="number"
+                      step="1"
+                      name="pagamentos"
+                      required
+                  >
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">$</span>
+                  </div>
+              </div>
+          </div>
 
-    <h3>Resultado</h3>
-    <div class="form-group row">
-        <label for="resultRate" class="col-sm-2 col-form-label">
-            Taxa <strong>(i)</strong>
-        </label>
-        <div class="col-md-3">
-            <div class="input-group">
-                <input type="text" readonly class="form-control-plaintext" id="resultRate" value="{{rate}}">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">%</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+          <div class="col-md-3">
+              <label for="valor-futuro">
+                  Valor Futuro <strong>(FV)</strong>
+              </label>
+              <div class="input-group">
+                  <input
+                  [(ngModel)]="futureValue"
+                  (keyup)="calculaTaxa()"
+                  (change)="calculaTaxa()"
+                  class="form-control"
+                  type="number"
+                  step="1"
+                  name="valor-futuro"
+                  required
+                  >
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">$</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <br>
 
-<!-- Valor Presente -->
-<div *ngIf="tvmRadio === 'pv'">
-    <h2>Present Value (PV)</h2>
-    <br>
-    <div class="row">
-        <div class="col-md-3">
-            <label for="numero-periodos">
-                Número de períodos <strong>(n)</strong>
-            </label>
-            <input
-                [(ngModel)]="numPeriods"
-                (keyup)="calculaValorPresente()"
-                (change)="calculaValorPresente()"
-                class="form-control"
-                type="number"
-                step="1"
-                name="numero-periodos"
-                required
-            >
-        </div>
+      <h3>Resultado</h3>
+      <div class="form-group row">
+          <label for="resultRate" class="col-sm-2 col-form-label">
+              Taxa <strong>(i)</strong>
+          </label>
+          <div class="col-md-3">
+              <div class="input-group">
+                  <input type="text" readonly class="form-control-plaintext" id="resultRate" value="{{rate}}">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">%</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 
-        <div class="col-md-3">
-            <label for="taxa">
-                Taxa <strong>(i)</strong>
-            </label>
-            <div class="input-group">
-                <input
-                [(ngModel)]="rate"
-                (keyup)="calculaValorPresente()"
-                (change)="calculaValorPresente()"
-                class="form-control"
-                type="number"
-                step="0.01"
-                name="taxa"
-                required
-                >
-                <div class="input-group-append">
-                    <span class="input-group-text">%</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <br>
-    <div class="row">
-        <div class="col-md-3">
-            <label for="pagamentos">
-                Pagamentos por período <strong>(PMT)</strong>
-            </label>
-            <div class="input-group">
-                <input
-                    [(ngModel)]="payments"
-                    (keyup)="calculaValorPresente()"
-                    (change)="calculaValorPresente()"
-                    class="form-control"
-                    type="number"
-                    step="1"
-                    name="pagamentos"
-                    required
-                >
-                <div class="input-group-prepend">
-                    <span class="input-group-text">$</span>
-                </div>
-            </div>
-        </div>
+  <!-- Valor Presente -->
+  <div *ngIf="tvmRadio === 'pv'">
+      <h2>Present Value (PV)</h2>
+      <br>
+      <div class="row">
+          <div class="col-md-3">
+              <label for="numero-periodos">
+                  Número de períodos <strong>(n)</strong>
+              </label>
+              <input
+                  [(ngModel)]="numPeriods"
+                  (keyup)="calculaValorPresente()"
+                  (change)="calculaValorPresente()"
+                  class="form-control"
+                  type="number"
+                  step="1"
+                  name="numero-periodos"
+                  required
+              >
+          </div>
 
-        <div class="col-md-3">
-            <label for="valor-futuro">
-                Valor Futuro <strong>(FV)</strong>
-            </label>
-            <div class="input-group">
-                <input
-                [(ngModel)]="futureValue"
-                (keyup)="calculaValorPresente()"
-                (change)="calculaValorPresente()"
-                class="form-control"
-                type="number"
-                step="1"
-                name="valor-futuro"
-                required
-                >
-                <div class="input-group-prepend">
-                    <span class="input-group-text">$</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <br>
+          <div class="col-md-3">
+              <label for="taxa">
+                  Taxa <strong>(i)</strong>
+              </label>
+              <div class="input-group">
+                  <input
+                  [(ngModel)]="rate"
+                  (keyup)="calculaValorPresente()"
+                  (change)="calculaValorPresente()"
+                  class="form-control"
+                  type="number"
+                  step="0.01"
+                  name="taxa"
+                  required
+                  >
+                  <div class="input-group-append">
+                      <span class="input-group-text">%</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <br>
+      <div class="row">
+          <div class="col-md-3">
+              <label for="pagamentos">
+                  Pagamentos por período <strong>(PMT)</strong>
+              </label>
+              <div class="input-group">
+                  <input
+                      [(ngModel)]="payments"
+                      (keyup)="calculaValorPresente()"
+                      (change)="calculaValorPresente()"
+                      class="form-control"
+                      type="number"
+                      step="1"
+                      name="pagamentos"
+                      required
+                  >
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">$</span>
+                  </div>
+              </div>
+          </div>
 
-    <h3>Resultado</h3>
-    <div class="form-group row">
-        <label for="resultPV" class="col-sm-2 col-form-label">
-            Valor Presente <strong>(PV)</strong>
-        </label>
-        <div class="col-md-3">
-            <div class="input-group">
-                <input type="text" readonly class="form-control-plaintext" id="resultPV" value="{{presentValue}}">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">$</span>
-                </div>
-            </div>
-        </div>
-    </div>
+          <div class="col-md-3">
+              <label for="valor-futuro">
+                  Valor Futuro <strong>(FV)</strong>
+              </label>
+              <div class="input-group">
+                  <input
+                  [(ngModel)]="futureValue"
+                  (keyup)="calculaValorPresente()"
+                  (change)="calculaValorPresente()"
+                  class="form-control"
+                  type="number"
+                  step="1"
+                  name="valor-futuro"
+                  required
+                  >
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">$</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <br>
 
-</div>
+      <h3>Resultado</h3>
+      <div class="form-group row">
+          <label for="resultPV" class="col-sm-2 col-form-label">
+              Valor Presente <strong>(PV)</strong>
+          </label>
+          <div class="col-md-3">
+              <div class="input-group">
+                  <input type="text" readonly class="form-control-plaintext" id="resultPV" value="{{presentValue}}">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">$</span>
+                  </div>
+              </div>
+          </div>
+      </div>
 
-<!-- Pagamentos por periodo -->
-<div *ngIf="tvmRadio === 'pmt'">
-    <h2>Payments per Periods (PMT)</h2>
-    <br>
-    <div class="row">
-        <div class="col-md-3">
-            <label for="numero-periodos">
-                Número de períodos <strong>(n)</strong>
-            </label>
-            <input
-                [(ngModel)]="numPeriods"
-                (keyup)="calculaPagamentos()"
-                (change)="calculaPagamentos()"
-                class="form-control"
-                type="number"
-                step="1"
-                name="numero-periodos"
-                required
-            >
-        </div>
+  </div>
 
-        <div class="col-md-3">
-            <label for="taxa">
-                Taxa <strong>(i)</strong>
-            </label>
-            <div class="input-group">
-                <input
-                [(ngModel)]="rate"
-                (keyup)="calculaPagamentos()"
-                (change)="calculaPagamentos()"
-                class="form-control"
-                type="number"
-                step="0.01"
-                name="taxa"
-                required
-                >
-                <div class="input-group-append">
-                    <span class="input-group-text">%</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <br>
-    <div class="row">
-        <div class="col-md-3">
-            <label for="valor-presente">
-                Valor Presente <strong>(PV)</strong>
-            </label>
-            <div class="input-group">
-                <input
-                [(ngModel)]="presentValue"
-                (keyup)="calculaPagamentos()"
-                (change)="calculaPagamentos()"
-                class="form-control"
-                type="number"
-                step="1"
-                name="valor-presente"
-                required
-                >
-                <div class="input-group-prepend">
-                    <span class="input-group-text">$</span>
-                </div>
-            </div>
-        </div>
+  <!-- Pagamentos por periodo -->
+  <div *ngIf="tvmRadio === 'pmt'">
+      <h2>Payments per Periods (PMT)</h2>
+      <br>
+      <div class="row">
+          <div class="col-md-3">
+              <label for="numero-periodos">
+                  Número de períodos <strong>(n)</strong>
+              </label>
+              <input
+                  [(ngModel)]="numPeriods"
+                  (keyup)="calculaPagamentos()"
+                  (change)="calculaPagamentos()"
+                  class="form-control"
+                  type="number"
+                  step="1"
+                  name="numero-periodos"
+                  required
+              >
+          </div>
 
-        <div class="col-md-3">
-            <label for="valor-futuro">
-                Valor Futuro <strong>(FV)</strong>
-            </label>
-            <div class="input-group">
-                <input
-                [(ngModel)]="futureValue"
-                (keyup)="calculaPagamentos()"
-                (change)="calculaPagamentos()"
-                class="form-control"
-                type="number"
-                step="1"
-                name="valor-futuro"
-                required
-                >
-                <div class="input-group-prepend">
-                    <span class="input-group-text">$</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <br>
+          <div class="col-md-3">
+              <label for="taxa">
+                  Taxa <strong>(i)</strong>
+              </label>
+              <div class="input-group">
+                  <input
+                  [(ngModel)]="rate"
+                  (keyup)="calculaPagamentos()"
+                  (change)="calculaPagamentos()"
+                  class="form-control"
+                  type="number"
+                  step="0.01"
+                  name="taxa"
+                  required
+                  >
+                  <div class="input-group-append">
+                      <span class="input-group-text">%</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <br>
+      <div class="row">
+          <div class="col-md-3">
+              <label for="valor-presente">
+                  Valor Presente <strong>(PV)</strong>
+              </label>
+              <div class="input-group">
+                  <input
+                  [(ngModel)]="presentValue"
+                  (keyup)="calculaPagamentos()"
+                  (change)="calculaPagamentos()"
+                  class="form-control"
+                  type="number"
+                  step="1"
+                  name="valor-presente"
+                  required
+                  >
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">$</span>
+                  </div>
+              </div>
+          </div>
 
-    <h3>Resultado</h3>
-    <div class="form-group row">
-        <label for="resultPMT" class="col-sm-2 col-form-label">
-            Pagamentos <strong>(PMT)</strong>
-        </label>
-        <div class="col-md-3">
-            <div class="input-group">
-                <input type="text" readonly class="form-control-plaintext" id="resultPMT" value="{{payments}}">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">$</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+          <div class="col-md-3">
+              <label for="valor-futuro">
+                  Valor Futuro <strong>(FV)</strong>
+              </label>
+              <div class="input-group">
+                  <input
+                  [(ngModel)]="futureValue"
+                  (keyup)="calculaPagamentos()"
+                  (change)="calculaPagamentos()"
+                  class="form-control"
+                  type="number"
+                  step="1"
+                  name="valor-futuro"
+                  required
+                  >
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">$</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <br>
 
-<!-- Valor Futuro -->
-<div *ngIf="tvmRadio === 'fv'">
-    <h2>Future Value (FV)</h2>
-    <br>
-    <div class="row">
-        <div class="col-md-3">
-            <label for="numero-periodos">
-                Número de períodos <strong>(n)</strong>
-            </label>
-            <input
-                [(ngModel)]="numPeriods"
-                (keyup)="calculaValorFuturo()"
-                (change)="calculaValorFuturo()"
-                class="form-control"
-                type="number"
-                step="1"
-                name="numero-periodos"
-                required
-            >
-        </div>
+      <h3>Resultado</h3>
+      <div class="form-group row">
+          <label for="resultPMT" class="col-sm-2 col-form-label">
+              Pagamentos <strong>(PMT)</strong>
+          </label>
+          <div class="col-md-3">
+              <div class="input-group">
+                  <input type="text" readonly class="form-control-plaintext" id="resultPMT" value="{{payments}}">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">$</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 
-        <div class="col-md-3">
-            <label for="taxa">
-                Taxa <strong>(i)</strong>
-            </label>
-            <div class="input-group">
-                <input
-                [(ngModel)]="rate"
-                (keyup)="calculaValorFuturo()"
-                (change)="calculaValorFuturo()"
-                class="form-control"
-                type="number"
-                step="0.01"
-                name="taxa"
-                required
-                >
-                <div class="input-group-append">
-                    <span class="input-group-text">%</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <br>
-    <div class="row">
-        <div class="col-md-3">
-            <label for="pagamentos">
-                Pagamentos por período <strong>(PMT)</strong>
-            </label>
-            <div class="input-group">
-                <input
-                    [(ngModel)]="payments"
-                    (keyup)="calculaValorFuturo()"
-                    (change)="calculaValorFuturo()"
-                    class="form-control"
-                    type="number"
-                    step="1"
-                    name="pagamentos"
-                    required
-                >
-                <div class="input-group-prepend">
-                    <span class="input-group-text">$</span>
-                </div>
-            </div>
-        </div>
+  <!-- Valor Futuro -->
+  <div *ngIf="tvmRadio === 'fv'">
+      <h2>Future Value (FV)</h2>
+      <br>
+      <div class="row">
+          <div class="col-md-3">
+              <label for="numero-periodos">
+                  Número de períodos <strong>(n)</strong>
+              </label>
+              <input
+                  [(ngModel)]="numPeriods"
+                  (keyup)="calculaValorFuturo()"
+                  (change)="calculaValorFuturo()"
+                  class="form-control"
+                  type="number"
+                  step="1"
+                  name="numero-periodos"
+                  required
+              >
+          </div>
 
-        <div class="col-md-3">
-            <label for="valor-presente">
-                Valor Presente <strong>(PV)</strong>
-            </label>
-            <div class="input-group">
-                <input
-                [(ngModel)]="presentValue"
-                (keyup)="calculaValorFuturo()"
-                (change)="calculaValorFuturo()"
-                class="form-control"
-                type="number"
-                step="1"
-                name="valor-presente"
-                required
-                >
-                <div class="input-group-prepend">
-                    <span class="input-group-text">$</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <br>
+          <div class="col-md-3">
+              <label for="taxa">
+                  Taxa <strong>(i)</strong>
+              </label>
+              <div class="input-group">
+                  <input
+                  [(ngModel)]="rate"
+                  (keyup)="calculaValorFuturo()"
+                  (change)="calculaValorFuturo()"
+                  class="form-control"
+                  type="number"
+                  step="0.01"
+                  name="taxa"
+                  required
+                  >
+                  <div class="input-group-append">
+                      <span class="input-group-text">%</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <br>
+      <div class="row">
+          <div class="col-md-3">
+              <label for="pagamentos">
+                  Pagamentos por período <strong>(PMT)</strong>
+              </label>
+              <div class="input-group">
+                  <input
+                      [(ngModel)]="payments"
+                      (keyup)="calculaValorFuturo()"
+                      (change)="calculaValorFuturo()"
+                      class="form-control"
+                      type="number"
+                      step="1"
+                      name="pagamentos"
+                      required
+                  >
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">$</span>
+                  </div>
+              </div>
+          </div>
 
-    <h3>Resultado</h3>
-    <div class="form-group row">
-        <label for="resultFV" class="col-sm-2 col-form-label">
-            Valor Futuro <strong>(FV)</strong>
-        </label>
-        <div class="col-md-3">
-            <div class="input-group">
-                <input type="text" readonly class="form-control-plaintext" id="resultFV" value="{{futureValue}}">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">$</span>
-                </div>
-            </div>
-        </div>
-    </div>
+          <div class="col-md-3">
+              <label for="valor-presente">
+                  Valor Presente <strong>(PV)</strong>
+              </label>
+              <div class="input-group">
+                  <input
+                  [(ngModel)]="presentValue"
+                  (keyup)="calculaValorFuturo()"
+                  (change)="calculaValorFuturo()"
+                  class="form-control"
+                  type="number"
+                  step="1"
+                  name="valor-presente"
+                  required
+                  >
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">$</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <br>
+
+      <h3>Resultado</h3>
+      <div class="form-group row">
+          <label for="resultFV" class="col-sm-2 col-form-label">
+              Valor Futuro <strong>(FV)</strong>
+          </label>
+          <div class="col-md-3">
+              <div class="input-group">
+                  <input type="text" readonly class="form-control-plaintext" id="resultFV" value="{{futureValue}}">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">$</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
 </div>

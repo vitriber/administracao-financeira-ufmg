@@ -1,44 +1,48 @@
-<h2>O modelo de precificação de ativos financeiros (CAPM)</h2>
-<p>São necessárias três variaveis para calcular o custo, sendo essas:</p>
-<input
-  [(ngModel)]="Rf"
-  (keyup)="calculaCapm()"
-  (change)="calculaCapm()"
-  type="number"
-/>
-Rf%
-<br />
-<br />
-<input
-  [(ngModel)]="Beta"
-  (keyup)="calculaCapm()"
-  (change)="calculaCapm()"
-  type="number"
-/>
-Beta
-<br />
-<br />
-<input
-  [(ngModel)]="Rm"
-  (keyup)="calculaCapm()"
-  (change)="calculaCapm()"
-  type="number"
-/>
-E(Rm)%
+<div class="content">
+  <h2>O modelo de precificação de ativos financeiros (CAPM)</h2>
+  <p>São necessárias três variaveis para calcular o custo, sendo essas:</p>
+  <input
+    [(ngModel)]="Rf"
+    (keyup)="calculaCapm()"
+    (change)="calculaCapm()"
+    type="number"
+  />
+  Rf%
+  <br />
+  <br />
+  <input
+    [(ngModel)]="Beta"
+    (keyup)="calculaCapm()"
+    (change)="calculaCapm()"
+    type="number"
+  />
+  Beta
+  <br />
+  <br />
+  <input
+    [(ngModel)]="Rm"
+    (keyup)="calculaCapm()"
+    (change)="calculaCapm()"
+    type="number"
+  />
+  E(Rm)%
 
-<br />
-<br />
-<h3>Resultado</h3>
-{{Ri}}
-<br />
-<br />
-ou
-<br />
-<br />
-{{RiPercent}}%
-<br />
-<br />
-<h3>Na formula</h3>
+  <br />
+  <br />
+  <h3>Resultado</h3>
+  {{Ri}}
+  <br />
+  <br />
+  ou
+  <br />
+  <br />
+  {{RiPercent}}%
+  <br />
+  <br />
+  <h3>Na formula</h3>
 
-{{Rf}} + {{Beta}} * [  {{Rm}} - {{Rf}}  ] = {{Ri}}
+  {{Rf}} + {{Beta}} * [  {{Rm}} - {{Rf}}  ] = {{Ri}}
+</div>
+
+
 

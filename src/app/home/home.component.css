@@ -6,6 +6,7 @@
   margin-top: 100px;
 }
 
+
 .home {
   width: 800px;
   max-width: 100%;
@@ -16,6 +17,7 @@
   text-align: center;
 }
 
+
 .autores {
   margin: 50px 0;
   text-align: center;
@@ -24,6 +26,7 @@
 
 .descricao {
   margin-top: 50px;
+  font-size: large;
 }
 
 .github-link {
@@ -32,4 +35,19 @@
 
 .github-link img {
   width: 50px;
+}
+
+.banner {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../assets/money.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  padding: 30px;
+}
+
+.banner-content {
+  text-align: center;
+  color: #FFFF;
 }

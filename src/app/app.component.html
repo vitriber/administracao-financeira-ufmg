@@ -1,21 +1,26 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">Trabalho Final de Administração Financeira</a>
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <a class="navbar-brand" href="/">Calculadora Financeira</a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto ml-auto">
       <!-- Menu com tabs -->
       <li class="nav-item">
-        <a class="nav-link" routerLink="/conversao-de-juros">
-          Conversão de Juros
+        <a class="nav-link" routerLink="/capm">
+          CAPM
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/wacc">
           WACC
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/conversao-de-juros">
+          Conversão de Juros
         </a>
       </li>
       <li class="nav-item">
@@ -33,11 +38,6 @@
           Custo Ações Alavancadas
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/capm">
-          CAPM
-        </a>
-      </li>
     </ul>
   </div>
 </nav>
@@ -45,3 +45,18 @@
 <div class="container app-container">
   <router-outlet></router-outlet>
 </div>
+
+<footer
+    class="footer"
+    :class="{ [`footer-${type}`]: type }"
+    :data-background-color="backgroundColor"
+  >
+    <div class="container">
+      <div class="copyright">
+          © 2021, feito com por
+        <a href="https://github.com/EwertonDCSilv" rel="noreferrer noopener" target="_blank">Ewerton Silva</a>,
+        <a href="https://github.com/" rel="noreferrer noopener" target="_blank">Jonas Trindade</a> e
+        <a href="https://github.com/" rel="noreferrer noopener" target="_blank">Vitor Ribeiro</a>
+      </div>
+    </div>
+  </footer>

@@ -1,29 +1,33 @@
-<h2>Conversão de Juros</h2>
+<div class="content">
+  <h2>Conversão de Juros</h2>
 
-<p>Essa calculadora traduz a % de Juros dado um período de tempo para outras medidas de tempo. Ao digitar em um dos campos é convertido em tempo real para as outras duas medidas a % correspondente.</p>
+  <p>Essa calculadora traduz a % de Juros dado um período de tempo para outras medidas de tempo. Ao digitar em um dos campos é convertido em tempo real para as outras duas medidas a % correspondente.</p>
 
-<input
-  [(ngModel)]="jurosAoDia"
-  (keyup)="calcularJurosAPartirDoDia()"
-  (change)="calcularJurosAPartirDoDia()"
-  type="number"
-/>
-% ao dia
-<br />
-<br />
-<input
-  [(ngModel)]="jurosAoMes"
-  (keyup)="calcularJurosAPartirDoMes()"
-  (change)="calcularJurosAPartirDoMes()"
-  type="number"
-/>
-% ao mes
-<br />
-<br />
-<input
-  [(ngModel)]="jurosAoAno"
-  (keyup)="calcularJurosAPartirDoAno()"
-  (change)="calcularJurosAPartirDoAno()"
-  type="number"
-/>
-% ao ano
+  <input
+    [(ngModel)]="jurosAoDia"
+    (keyup)="calcularJurosAPartirDoDia()"
+    (change)="calcularJurosAPartirDoDia()"
+    type="number"
+  />
+  % ao dia
+  <br />
+  <br />
+  <input
+    [(ngModel)]="jurosAoMes"
+    (keyup)="calcularJurosAPartirDoMes()"
+    (change)="calcularJurosAPartirDoMes()"
+    type="number"
+  />
+  % ao mes
+  <br />
+  <br />
+  <input
+    [(ngModel)]="jurosAoAno"
+    (keyup)="calcularJurosAPartirDoAno()"
+    (change)="calcularJurosAPartirDoAno()"
+    type="number"
+  />
+  % ao ano
+</div>
+
+
