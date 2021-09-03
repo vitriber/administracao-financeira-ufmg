@@ -1,0 +1,70 @@
+<div class="content">
+  <h2>Informações de Seguro</h2>
+
+  <p>As informações do seguro apresentam dados necessários para estimar o prêmio atuarialmente justo, que o valor pago pelos segurados para obter a proteção junto à seguradora contra a eventual ocorrência do sinistro.</p>
+
+  <h6>Prazo de cobertura</h6>
+  <input
+    [(ngModel)]="prazoDeCoberturaAnual"
+    (keyup)="calcularPremioEmParcelaUnicaAnual()"
+    (change)="calcularPremioEmParcelaUnicaAnual()"
+    type="number"
+  />
+  anos
+  <br />
+  <br />
+  <h6>Apólice</h6>
+  R$ <input
+    [(ngModel)]="apolice"
+    (keyup)="calcularPremioEmParcelaUnicaAnual()"
+    (change)="calcularPremioEmParcelaUnicaAnual()"
+    type="number"
+  />
+  <br />
+  <br />
+  <h6>Probabilida de Sinistro</h6>
+  <input
+    [(ngModel)]="probabilidadeDeSinistro"
+    (keyup)="calcularPremioEmParcelaUnicaAnual()"
+    (change)="calcularPremioEmParcelaUnicaAnual()"
+    type="number"
+  />
+  % ao ano
+  <br />
+  <br />
+  <h6>Rentabilidade do fundo atuarial</h6>
+  <input
+    [(ngModel)]="rentabilidadeDoFundoAtuarial"
+    (keyup)="calcularPremioEmParcelaUnicaAnual()"
+    (change)="calcularPremioEmParcelaUnicaAnual()"
+    type="number"
+  />
+  % ao ano
+  <br />
+  <br />
+  <h6>Despesas gerais da seguradora</h6>
+  R$ <input
+    [(ngModel)]="despesasGeraisDaSeguradora"
+    (keyup)="calcularPremioEmParcelaUnicaAnual()"
+    (change)="calcularPremioEmParcelaUnicaAnual()"
+    type="number"
+  />
+  ao ano
+  <br />
+  <br />
+  <h6>Total de segurados para o sinistro</h6>
+  <input
+    [(ngModel)]="totalDeSeguradosParaOSinistro"
+    (keyup)="calcularPremioEmParcelaUnicaAnual()"
+    (change)="calcularPremioEmParcelaUnicaAnual()"
+    type="number"
+  />
+  <br />
+  <br />
+    <h6>Prêmio em parcela única anual:</h6>
+    R$ {{premioAnual.toFixed(2)}}
+  <br />
+  <br />
+</div>
+
+

@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { ConversaoDeJurosComponent } from './conversao-de-juros/conversao-de-juros.component';
 import { Formula1Component } from './formula1/formula1.component';
 import { MeuComponenteComponent } from './meu-componente/meu-componente.component';
-import { PortfolioReplicanteComponent } from './portfolio-replicante/portfolio-replicante.component';
 import { CsvFileInputComponent } from './csv-file-input/csv-file-input.component';
 import { WaccComponent } from './wacc/wacc.component';
 import { TimeValueMoneyComponent } from './time-value-money/time-value-money.component';
@@ -18,6 +17,7 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { HomeComponent } from './home/home.component';
 import { CalculoJuros } from './calculo-juros/calculo-juros.component';
+import { InformacaoDeSeguro } from './informacao-de-seguro/informacao-de-seguro.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,6 @@ import { CalculoJuros } from './calculo-juros/calculo-juros.component';
     ConversaoDeJurosComponent,
     Formula1Component,
     MeuComponenteComponent,
-    PortfolioReplicanteComponent,
     CsvFileInputComponent,
     WaccComponent,
     TimeValueMoneyComponent,
@@ -33,6 +32,7 @@ import { CalculoJuros } from './calculo-juros/calculo-juros.component';
     CapmComponent,
     HomeComponent,
     CalculoJuros,
+    InformacaoDeSeguro
   ],
   imports: [
     BrowserModule,
@@ -42,11 +42,11 @@ import { CalculoJuros } from './calculo-juros/calculo-juros.component';
       { path: '', component: HomeComponent },
       { path: 'conversao-de-juros', component: ConversaoDeJurosComponent },
       { path: 'wacc', component: WaccComponent },
-      { path: 'portfolio-replicante', component: PortfolioReplicanteComponent },
       { path: 'time-value-money', component: TimeValueMoneyComponent },
       { path: 'custo-acoes-alavancadas', component: CustoAcoesAlavancadasComponent },
       { path: 'capm', component: CapmComponent },
-      { path: 'calculo-juros', component: CalculoJuros }
+      { path: 'calculo-juros', component: CalculoJuros },
+      { path: 'informacao-de-seguro', component: InformacaoDeSeguro }
     ]),
   ],
   providers: [],
