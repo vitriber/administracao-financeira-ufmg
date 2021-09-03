@@ -7,12 +7,16 @@
   text-align: center;
 }
 
+.dropdown-toggle{
+     color: #ffff;
+}
+
 .navbar-custom {
   background-color: #345242;
 }
 /* change the brand and text color */
 .navbar-custom .navbar-brand,
-.navbar-custom .navbar-text {
+.navbar-custom .navbar-text .nav-item {
   color: rgba(255,255,255,.8);
 }
 /* change the link color */
@@ -44,4 +48,8 @@ footer a {
 
 foooter a:hover {
   color: #ffffff;
+}
+
+li {
+  text-decoration: none;
 }
