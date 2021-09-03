@@ -3,36 +3,37 @@
 </div>
 <div class="content">
   <div>
-    <br>
     <h3>Calculo de Juros Simples</h3>
     <br>
     <p>São necessárias três variaveis para calcular os juros, sendo essas:</p>
     <br>
-    Capital
-    <input
-      [(ngModel)]="Capital"
-      (keyup)="calculaJurosSimples()"
-      (change)="calculaJurosSimples()"
-      type="number"
-    />
-    <br />
-    <br />
-    Taxa
-    <input
-      [(ngModel)]="Taxa"
-      (keyup)="calculaJurosSimples()"
-      (change)="calculaJurosSimples()"
-      type="number"
-    />A.A
-    <br />
-    <br />
-    Tempo
-    <input
-      [(ngModel)]="Tempo"
-      (keyup)="calculaJurosSimples()"
-      (change)="calculaJurosSimples()"
-      type="number"
-    />
+    <div class="content-input">
+      <input
+        [(ngModel)]="Capital"
+        (keyup)="calculaJurosSimples()"
+        (change)="calculaJurosSimples()"
+        type="number"
+      />
+      Capital
+      <br />
+      <br />
+      <input
+        [(ngModel)]="Taxa"
+        (keyup)="calculaJurosSimples()"
+        (change)="calculaJurosSimples()"
+        type="number"
+      />
+      Taxa A.A
+      <br />
+      <br />
+      <input
+        [(ngModel)]="Tempo"
+        (keyup)="calculaJurosSimples()"
+        (change)="calculaJurosSimples()"
+        type="number"
+      />
+      Tempo
+    </div>
     <br />
     <br />
     <h3>Resultado</h3>
@@ -41,36 +42,39 @@
     <br />
   </div>
   <div>
-    <br>
     <h3>Calculo de Juros Composto</h3>
     <br>
     <p>São necessárias três variaveis para calcular os juros, sendo essas:</p>
     <br>
-    Capital
-    <input
-      [(ngModel)]="CapitalComposto"
-      (keyup)="calculaJurosComposto()"
-      (change)="calculaJurosComposto()"
-      type="number"
-    />
-    <br />
-    <br />
-    Taxa
-    <input
-      [(ngModel)]="TaxaComposto"
-      (keyup)="calculaJurosComposto()"
-      (change)="calculaJurosComposto()"
-      type="number"
-    />A.A
-    <br />
-    <br />
-    Tempo
-    <input
-      [(ngModel)]="TempoComposto"
-      (keyup)="calculaJurosComposto()"
-      (change)="calculaJurosComposto()"
-      type="number"
-    />
+    <div class="content-input">
+      <input
+        [(ngModel)]="CapitalComposto"
+        (keyup)="calculaJurosComposto()"
+        (change)="calculaJurosComposto()"
+        type="number"
+      />
+      Capital
+      <br />
+      <br />
+      <input
+        [(ngModel)]="TaxaComposto"
+        (keyup)="calculaJurosComposto()"
+        (change)="calculaJurosComposto()"
+        type="number"
+      />
+      Taxa A.A
+      <br />
+      <br />
+      <input
+        [(ngModel)]="TempoComposto"
+        (keyup)="calculaJurosComposto()"
+        (change)="calculaJurosComposto()"
+        type="number"
+      />
+      Tempo
+      <br />
+      <br />
+    </div>
     <br />
     <br />
     <h3>Resultado</h3>
