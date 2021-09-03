@@ -1,0 +1,81 @@
+<div class="title">
+  <h2>Calculo de Juros Simples e Composto</h2>
+</div>
+<div class="content">
+  <div>
+    <br>
+    <h3>Calculo de Juros Simples</h3>
+    <br>
+    <p>São necessárias três variaveis para calcular os juros, sendo essas:</p>
+    <br>
+    Capital
+    <input
+      [(ngModel)]="Capital"
+      (keyup)="calculaJurosSimples()"
+      (change)="calculaJurosSimples()"
+      type="number"
+    />
+    <br />
+    <br />
+    Taxa
+    <input
+      [(ngModel)]="Taxa"
+      (keyup)="calculaJurosSimples()"
+      (change)="calculaJurosSimples()"
+      type="number"
+    />A.A
+    <br />
+    <br />
+    Tempo
+    <input
+      [(ngModel)]="Tempo"
+      (keyup)="calculaJurosSimples()"
+      (change)="calculaJurosSimples()"
+      type="number"
+    />
+    <br />
+    <br />
+    <h3>Resultado</h3>
+    {{JurosSimples}}
+    <br />
+    <br />
+  </div>
+  <div>
+    <br>
+    <h3>Calculo de Juros Composto</h3>
+    <br>
+    <p>São necessárias três variaveis para calcular os juros, sendo essas:</p>
+    <br>
+    Capital
+    <input
+      [(ngModel)]="CapitalComposto"
+      (keyup)="calculaJurosComposto()"
+      (change)="calculaJurosComposto()"
+      type="number"
+    />
+    <br />
+    <br />
+    Taxa
+    <input
+      [(ngModel)]="TaxaComposto"
+      (keyup)="calculaJurosComposto()"
+      (change)="calculaJurosComposto()"
+      type="number"
+    />A.A
+    <br />
+    <br />
+    Tempo
+    <input
+      [(ngModel)]="TempoComposto"
+      (keyup)="calculaJurosComposto()"
+      (change)="calculaJurosComposto()"
+      type="number"
+    />
+    <br />
+    <br />
+    <h3>Resultado</h3>
+    {{JurosComposto}}
+    <br />
+    <br />
+  </div>
+</div>

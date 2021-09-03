@@ -17,6 +17,7 @@ import { CapmComponent } from './capm/capm.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { HomeComponent } from './home/home.component';
+import { CalculoJuros } from './calculo-juros/calculo-juros.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HomeComponent } from './home/home.component';
     TimeValueMoneyComponent,
     CustoAcoesAlavancadasComponent,
     CapmComponent,
-    HomeComponent
+    HomeComponent,
+    CalculoJuros,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ import { HomeComponent } from './home/home.component';
       { path: 'portfolio-replicante', component: PortfolioReplicanteComponent },
       { path: 'time-value-money', component: TimeValueMoneyComponent },
       { path: 'custo-acoes-alavancadas', component: CustoAcoesAlavancadasComponent },
-      { path: 'capm', component: CapmComponent }
+      { path: 'capm', component: CapmComponent },
+      { path: 'calculo-juros', component: CalculoJuros }
     ]),
   ],
   providers: [],
